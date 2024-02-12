@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div style="margin-top: 25px;" class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div style="margin-top: 25px;" class="col shadow bg-body rounded card">
+                <div class="card-body">
+                    <h2 class="text-center">
+                        <b>Register</b>
+                    </h2>
+                    <hr>
+                    {{ form_errors(registrationForm) }}
+
+                    <div class="container">
+                        <div class="row">
+                            {{ form_start(registrationForm) }}
+                                <div style="margin-top: 10px;" id="email-field">
+                                    {{ form_label(registrationForm.email) }} <br>
+                                    {{ form_widget(registrationForm.email) }}
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                    {{ form_errors(registrationForm.email) }}
+                                    {{ form_rest(registrationForm.email) }}
+                                </div>
+                                <div style="margin-top: 10px;" id="password-field">
+                                    {{ form_label(registrationForm.plainPassword.first) }}<br>
+                                    {{ form_widget(registrationForm.plainPassword.first) }}
+                                    {{ form_errors(registrationForm.plainPassword.first) }}
+                                    {{ form_rest(registrationForm.plainPassword.first) }}
+                                </div>
+                                <div style="margin-top: 10px;" id="password-field">
+                                    {{ form_label(registrationForm.plainPassword.second) }}<br>
+                                    {{ form_widget(registrationForm.plainPassword.second) }}
+                                    {{ form_errors(registrationForm.plainPassword.second) }}
+                                    {{ form_rest(registrationForm.plainPassword.second) }}
+                                </div>
+                                <div style="margin-top: 10px;" id="password-field">
+                                    {{ form_widget(registrationForm.agreeTerms) }}
+                                    {{ form_label(registrationForm.agreeTerms) }}<br>
+                                    <p style="margin-top: 5px;" class="text-center text-muted"> Have fun and enjoy the CarHub!</p>
+                                    {{ form_errors(registrationForm.agreeTerms) }}
+                                    {{ form_rest(registrationForm.agreeTerms) }}
+                                </div>
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <button style="margin-top: 25px;" class="btn btn-sm btn-success" type="submit" class="btn">Register</button>
+                                </div>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}

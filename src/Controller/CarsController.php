@@ -9,9 +9,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CarsController extends AbstractController
 {
-    #[Route('/cars', name: 'app_cars')]
+    #[Route('/', name: 'index')]
     public function index(): Response
     {
         return $this->render('index.html.twig');
+    }
+
+    #[Route('/home', name: 'home')]
+    public function home(): Response
+    {
+        return $this->render('home.html.twig');
+    }
+
+    #[Route('/about', name: 'about')]
+    public function about(): Response
+    {
+        return $this->render('about.html.twig');
     }
 }

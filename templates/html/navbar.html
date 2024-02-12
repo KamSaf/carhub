@@ -1,12 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="home.php" class="navbar-brand">CarHub 🚗</a>
+        <a href="/home" class="navbar-brand">CarHub 🚗</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href='about.php'>About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('about') }}">About</a></li>
             </ul>
-            <a class='navbar-brand'>Hello, NAME!</a>
-            <button style="margin-left: 20px;" class="btn btn-outline-light" href="#" >Log out <i class="bi bi-lock"></i></i></button>
+            {% if 1!=1 %}
+                <a class='navbar-brand'>Hello, NAME!</a>
+                <button style="margin-left: 20px;" class="btn btn-outline-light" href="#" >Log out <i class="bi bi-lock"></i></i></button>
+            {% else %}
+                <a style="margin-left: 20px;" class="btn btn-outline-light" href="#" >Log in <i class="bi bi-unlock"></i></i></a>
+            {% endif %}
         </div>
     </div>
 </nav>

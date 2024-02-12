@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeInterface $reg_date = null;
 
     #[ORM\Column]
-    private ?bool $is_deleted = null;
+    private ?bool $is_deleted = false;
 
     public function getId(): ?int
     {

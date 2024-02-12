@@ -24,19 +24,25 @@
                                     {{ form_errors(registrationForm.email) }}
                                     {{ form_rest(registrationForm.email) }}
                                 </div>
+                                <div style="margin-top: 10px;" id="name-field">
+                                    {{ form_label(registrationForm.name) }} <br>
+                                    {{ form_widget(registrationForm.name) }}
+                                    {{ form_errors(registrationForm.name) }}
+                                    {{ form_rest(registrationForm.name) }}
+                                </div>
                                 <div style="margin-top: 10px;" id="password-field">
                                     {{ form_label(registrationForm.plainPassword.first) }}<br>
                                     {{ form_widget(registrationForm.plainPassword.first) }}
                                     {{ form_errors(registrationForm.plainPassword.first) }}
                                     {{ form_rest(registrationForm.plainPassword.first) }}
                                 </div>
-                                <div style="margin-top: 10px;" id="password-field">
+                                <div style="margin-top: 10px;" id="confitm-password-field">
                                     {{ form_label(registrationForm.plainPassword.second) }}<br>
                                     {{ form_widget(registrationForm.plainPassword.second) }}
                                     {{ form_errors(registrationForm.plainPassword.second) }}
                                     {{ form_rest(registrationForm.plainPassword.second) }}
                                 </div>
-                                <div style="margin-top: 10px;" id="password-field">
+                                <div style="margin-top: 10px;" id="agree-terms-field">
                                     {{ form_widget(registrationForm.agreeTerms) }}
                                     {{ form_label(registrationForm.agreeTerms) }}<br>
                                     <p style="margin-top: 5px;" class="text-center text-muted"> Have fun and enjoy the CarHub!</p>

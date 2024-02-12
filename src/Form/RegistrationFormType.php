@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-// use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -24,6 +24,14 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Email address:',
                 'attr' => [
                     'autocomplete' => 'email',
+                    'class' => 'form-control',
+                    'style' => 'margin-top: 5px;',
+                    'aria-describedby' => 'emailHelp',
+                ]
+            ])
+            ->add('name', TextType::class, [
+                'label' => 'Name:',
+                'attr' => [
                     'class' => 'form-control',
                     'style' => 'margin-top: 5px;',
                     'aria-describedby' => 'emailHelp',

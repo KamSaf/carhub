@@ -5,11 +5,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="{{ path('about') }}">About</a></li>
             </ul>
-            {% if 1!=1 %}
-                <a class='navbar-brand'>Hello, NAME!</a>
-                <button style="margin-left: 20px;" class="btn btn-outline-light" href="#" >Log out <i class="bi bi-lock"></i></i></button>
+            {% if app.user %}
+                <a class='navbar-brand'>Hello, {{ app.user.name }}!</a>
+                <a style="margin-left: 20px;" class="btn btn-outline-light" href="{{ path('app_logout') }}" >Log out <i class="bi bi-lock"></i></a>
             {% else %}
-                <a style="margin-left: 20px;" class="btn btn-outline-light" href="#" >Log in <i class="bi bi-unlock"></i></i></a>
+                <a style="margin-left: 20px;" class="btn btn-outline-light" href="{{ path('app_login') }}" >Log in <i class="bi bi-unlock"></i></a>
             {% endif %}
         </div>
     </div>

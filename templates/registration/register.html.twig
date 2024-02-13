@@ -50,10 +50,10 @@
                                     {{ form_rest(registrationForm.agreeTerms) }}
                                 </div>
                                 <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button style="margin-top: 25px;" class="btn btn-sm btn-success" type="submit" class="btn">Register</button>
+                                    <button style="margin-top: 25px;" class="btn btn-sm btn-success" type="submit">Register</button>
                                 </div>
                             {{ form_end(registrationForm) }}
-                        </div>
+                            <small style="margin-top: 15px;" class="text-muted">Already have an account? <a class="ml-2" href="{{ path('app_login') }}">Sign in</a></small>                        </div>
                     </div>
                 </div>
             </div>

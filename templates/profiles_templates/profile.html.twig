@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User profile{% endblock %}
+
+{% block body %}
+    {# {% if error %}
+        <div style="margin-top: 10px;" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %} #}
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div style="margin-top: 25px;" class="col shadow bg-body rounded card">
+                <div class="card-body">
+                    {# {% if app.user %}
+                        <div class="text-center mb-3 shadow bg-body rounded card">
+                            You are logged in as {{ app.user.userIdentifier }} <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %} #}
+                        <h1 class="h3 mb-3 font-weight-normal text-center">User profile</h1>
+                        <hr>
+                        <div style="margin-bottom: 15px;" class="row">
+                            <span class="col text-start">
+                                <span class="float-start">Email address:</span>
+                                <span class="float-end">
+                                    {{ app.user.email }}
+                                </span>
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 15px;" class="row">
+                            <span class="col text-start">
+                                <span class="float-start">Name:</span>
+                                <span class="float-end">
+                                    {{ app.user.name }}
+                                </span>
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 15px;" class="row">
+                            <span class="col text-start">
+                                <span class="float-start">Password:</span>
+                                <span class="float-end">
+                                    *****
+                                </span>
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 15px;" class="row">
+                            <span class="col text-start">
+                                <span class="float-start">Register date:</span>
+                                <span class="float-end">
+                                    {{ app.user.regdate|date("d.m.Y") }}
+                                </span>
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 15px;" class="row">
+                            <span class="col text-start">
+                                <span class="float-start">Time zone:</span>
+                                <span class="float-end">
+                                    {{ app.user.timezone }}
+                                </span>
+                            </span>
+                        </div>
+                        <span>
+                            <button class="btn btn-sm btn-outline-info">Edit</button>
+                            <button class="btn btn-danger btn-sm float-end">Delete account</button>
+                        </span>
+
+                        {# <label style="margin-top: 10px;" for="inputEmail">Email</label>
+                        <input style="margin-top: 5px;" type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+                        <label style="margin-top: 10px;" for="inputPassword">Password</label>
+                        <input style="margin-top: 5px;" type="password" name="password" id="inputPassword" class="form-control"required>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button style="margin-top: 25px;" class="btn btn-sm btn-success" type="submit">Sign in</button>
+                        </div> #}
+
+                </div>
+                
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

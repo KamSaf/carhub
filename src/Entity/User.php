@@ -39,6 +39,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $is_deleted = false;
 
+    #[ORM\Column(length: 150)]
+    private ?string $Timezone = "Europe/Warsaw";
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +144,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsDeleted(bool $is_deleted): static
     {
         $this->is_deleted = $is_deleted;
+
+        return $this;
+    }
+
+    public function getTimezone(): ?string
+    {
+        return $this->Timezone;
+    }
+
+    public function setTimezone(string $Timezone): static
+    {
+        $this->Timezone = $Timezone;
 
         return $this;
     }

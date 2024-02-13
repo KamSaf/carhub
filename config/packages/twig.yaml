@@ -1,6 +1,28 @@
 twig:
     file_name_pattern: '*.twig'
+    globals:
+        timezones:
+            - "America/New_York"
+            - "America/Chicago"
+            - "America/Denver"
+            - "America/Los_Angeles"
+            - "America/Phoenix"
+            - "America/Toronto"
+            - "Europe/London"
+            - "Europe/Berlin"
+            - "Europe/Madrid"
+            - "Europe/Warsaw"
+            - "Europe/Kyiv"
+            - "Europe/Moscow"
+            - "Asia/Tokyo"
+            - "Asia/Shanghai"
+            - "Asia/Dubai"
+            - "Asia/Kolkata"
+            - "Australia/Sydney"
+            - "Pacific/Auckland"
+
 
 when@test:
     twig:
         strict_variables: true
+

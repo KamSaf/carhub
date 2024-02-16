@@ -9,3 +9,5 @@
 import './styles/app.css';
 
 import './javascript/profile.js';
+
+import './javascript/home.js';

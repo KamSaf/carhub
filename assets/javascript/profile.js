@@ -6,7 +6,7 @@ $(function() {
 
     $(".confirm-delete-profile-button").on("click", function() {
       var userId = $(this).data("userId");
-
+      
     //   $.ajax({
     //     type: "POST",
     //     url: "",
@@ -27,19 +27,16 @@ $(function() {
       modal.show();
     });
 
-    $(".save-edit-profile-button").on("click", function() {
-      var userId = $(this).data("userId");
+  $(".save-edit-profile-button").on("click", function(event) {
+    event.preventDefault();
 
-    //   $.ajax({
-    //     type: "POST",
-    //     url: "",
-    //     data: {
-    //       postId: postId
-    //     },
-    //     success: function(response) {
-    //       $("#post_" + postId).remove();
-    //       modal.hide();
-    //     }
-    //   });
-    });
+      $.ajax({
+        type: "POST",
+        url: "/edit_profile",
+        data: $('form').serializeArray(),
+        success: function(response) {
+          console.log(response);
+        }
+      });
+  });
 });

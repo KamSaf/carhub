@@ -14,14 +14,16 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
 class ProfileDataFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    {   
         $builder
         ->add('email', EmailType::class, [
             'label' => 'New email address:',
+            'required' => false,
             'attr' => [
                 'autocomplete' => 'email',
                 'class' => 'form-control',
@@ -30,6 +32,7 @@ class ProfileDataFormType extends AbstractType
         ])
         ->add('name', TextType::class, [
             'label' => 'New name:',
+            'required' => false,
             'attr' => [
                 'class' => 'form-control',
                 'style' => 'margin-top: 5px;',
@@ -38,18 +41,19 @@ class ProfileDataFormType extends AbstractType
         ])
         ->add('plainPassword', RepeatedType::class, [
             'type' => PasswordType::class,
+            'required' => false,
             'mapped' => false,
             'attr' => [
                 'autocomplete' => 'new-password',
                 'class' => 'form-control',
             ],
             'constraints' => [
-            new Length([
-                'min' => 6,
-                'minMessage' => 'Your password should be at least {{ limit }} characters',
-                // max length allowed by Symfony for security reasons
-                'max' => 4096,
-            ]),
+                new Length([
+                    'min' => 6,
+                    'minMessage' => 'Your password should be at least {{ limit }} characters',
+                    // max length allowed by Symfony for security reasons
+                    'max' => 4096,
+                ]),
             ],
             'first_options' => ['label' => 'New password:',
                             'attr' => [
@@ -69,7 +73,7 @@ class ProfileDataFormType extends AbstractType
             ->add('newTimezone', ChoiceType::class, [
                 'mapped' => false,
                 'choices' => TimezoneEnum::getArray(),
-                'choice_label' => function (string $choice) {
+                                'choice_label' => function (string $choice) {
                     return $choice;
                 },
                 'preferred_choices' => [$options['data']->getTimezone()],
@@ -87,6 +91,9 @@ class ProfileDataFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
+                    ]),
+                    new UserPassword([
+                        'message' => 'Wrong value for your current password',
                     ]),
                 ],
             ])
